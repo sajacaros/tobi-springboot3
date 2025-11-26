@@ -1,2 +1,11 @@
-### GET request to example server
+### hello dukim GET - 200
 GET http://localhost:8080/hello?name=dukim
+
+### hello dukim POST - 404
+POST http://localhost:8080/hello?name=dukim
+
+### user - 200
+GET http://localhost:8080/user
+
+### error - 404
+GET http://localhost:8080/error
