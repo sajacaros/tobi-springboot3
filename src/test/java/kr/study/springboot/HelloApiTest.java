@@ -23,7 +23,7 @@ class HelloApiTest {
         // headers content-type text/plain
         assertThat(ret.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
         // body Hello dukim
-        assertThat(ret.getBody()).isEqualTo("Hello dukim");
+        assertThat(ret.getBody()).isEqualTo("*Hello dukim*");
     }
 
     @Test
