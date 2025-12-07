@@ -26,8 +26,8 @@ public class MySpringbootApplication {
         // 스프링을 이용할땐 ApplicationContextAware를 구현하기 보단 생성자를 통해 주입받는것이 깔끔해 보임
     }
 
-    public static void main(String[] args) {
-        MySpringApplication.run(SpringbootApplication.class, args);
-        // SpringApplication.run(MySpringbootApplication.class, args);
-    }
+//    public static void main(String[] args) {
+//        MySpringApplication.run(SpringbootApplication.class, args);
+//        // SpringApplication.run(MySpringbootApplication.class, args);
+//    }
 }
