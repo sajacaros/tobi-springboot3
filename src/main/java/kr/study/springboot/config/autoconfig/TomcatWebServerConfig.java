@@ -4,7 +4,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 
-public class TomcatWEbServerConfig {
+public class TomcatWebServerConfig {
     @Bean
     public ServletWebServerFactory servletContainer() {
         return new TomcatServletWebServerFactory();
