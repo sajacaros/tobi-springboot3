@@ -26,4 +26,22 @@ class HelloApiTest {
         assertThat(ret.getBody()).isEqualTo("Hello dukim");
     }
 
+    @Test
+    void failsNullHelloApi() {
+        // http localhost:8080/hello?name=Spring
+        TestRestTemplate restTemplate = new TestRestTemplate();
+        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/hello?name=", String.class);
+        // status code 200
+        assertThat(ret.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Test
+    void failsEmptyHelloApi() {
+        // http localhost:8080/hello?name=Spring
+        TestRestTemplate restTemplate = new TestRestTemplate();
+        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/hello?name={name}", String.class, "");
+        // status code 200
+        assertThat(ret.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }
