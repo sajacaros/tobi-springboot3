@@ -1,21 +1,11 @@
-package kr.study.springboot;
+package kr.study.springboot.config.autoconfig;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import kr.study.springboot.config.MyAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
 
-@Configuration
-@ComponentScan
-public class SpringbootApplication {
-    @Bean
-    public ServletWebServerFactory servletContainer() {
-        return new TomcatServletWebServerFactory();
-    }
-
+@MyAutoConfiguration
+public class DispatcherServletConfig {
     @Bean
     public DispatcherServlet dispatcherServlet() {
         return new DispatcherServlet();
@@ -24,10 +14,5 @@ public class SpringbootApplication {
         // DispatcherServlet은 FrameworkServlet을 상속하고 있으며 ApplicationContextAware의 setApplicationContext 메서드를 구현함
         // https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/FrameworkServlet.html
         // 스프링을 이용할땐 ApplicationContextAware를 구현하기 보단 생성자를 통해 주입받는것이 깔끔해 보임
-    }
-
-    public static void main(String[] args) {
-        // MySpringApplication.run(SpringbootApplication.class, args);
-        SpringApplication.run(SpringbootApplication.class, args);
     }
 }
