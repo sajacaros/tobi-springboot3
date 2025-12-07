@@ -1,4 +1,4 @@
-package kr.study.springboot;
+package kr.study.springboot.backup;
 
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;

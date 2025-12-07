@@ -1,4 +1,4 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

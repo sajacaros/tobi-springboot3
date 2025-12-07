@@ -1,6 +1,6 @@
-package kr.study.springboot;
+package kr.study.springboot.backup;
 
-import org.springframework.boot.SpringApplication;
+import kr.study.springboot.SpringbootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
 @ComponentScan
-public class SpringbootApplication {
+public class MySpringbootApplication {
     @Bean
     public ServletWebServerFactory servletContainer() {
         return new TomcatServletWebServerFactory();
@@ -27,7 +27,7 @@ public class SpringbootApplication {
     }
 
     public static void main(String[] args) {
-        // MySpringApplication.run(SpringbootApplication.class, args);
-        SpringApplication.run(SpringbootApplication.class, args);
+        MySpringApplication.run(SpringbootApplication.class, args);
+        // SpringApplication.run(MySpringbootApplication.class, args);
     }
 }

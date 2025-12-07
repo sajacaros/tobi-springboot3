@@ -1,4 +1,4 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
 public interface HelloService {
     String sayHello(String name);
