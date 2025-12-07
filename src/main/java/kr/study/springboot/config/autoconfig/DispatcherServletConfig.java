@@ -1,8 +1,10 @@
 package kr.study.springboot.config.autoconfig;
 
+import kr.study.springboot.config.MyAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@MyAutoConfiguration // 관례
 public class DispatcherServletConfig {
     @Bean
     public DispatcherServlet dispatcherServlet() {
