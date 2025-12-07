@@ -2,10 +2,11 @@ package kr.study.springboot.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
 
-@MyRestController
+@RestController
 @RequestMapping("/hello")
 public class HelloController {
     private final HelloService helloService;

@@ -1,4 +1,4 @@
-package kr.study.springboot.hello;
+package kr.study.springboot.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,5 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Configuration
 @ComponentScan
+@EnableMyAutoConfiguration
 public @interface MySpringBootApplication {
 }

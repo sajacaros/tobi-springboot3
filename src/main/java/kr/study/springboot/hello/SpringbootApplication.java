@@ -1,6 +1,6 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
-import kr.study.springboot.hello.MySpringBootApplication;
+import kr.study.springboot.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
 @MySpringBootApplication

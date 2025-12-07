@@ -1,6 +1,6 @@
 package kr.study.springboot.backup;
 
-import kr.study.springboot.SpringbootApplication;
+import kr.study.springboot.hello.SpringbootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;

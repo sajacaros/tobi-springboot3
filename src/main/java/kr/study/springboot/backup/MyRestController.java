@@ -1,4 +1,4 @@
-package kr.study.springboot.hello;
+package kr.study.springboot.backup;
 
 import org.springframework.web.bind.annotation.RestController;
 
