@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.context.annotation.*;
 import org.springframework.core.type.AnnotatedTypeMetadata;
+import org.springframework.util.MultiValueMap;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,8 +33,15 @@ public class ConditionalTest {
                 });
     }
 
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
+    @Conditional(BooleanCondition.class)
+    @interface BooleanConditional {
+        boolean value();
+    }
+
     @Configuration
-    @Conditional(TrueCondition.class)
+    @BooleanConditional(true)
     static class Config1 {
         @Bean
         MyBean myBean() {
@@ -37,7 +50,7 @@ public class ConditionalTest {
     }
 
     @Configuration
-    @Conditional(FalseCondition.class)
+    @BooleanConditional(false)
     static class Config2 {
         @Bean
         MyBean myBean() {
@@ -49,19 +62,14 @@ public class ConditionalTest {
 
     }
 
-    static class TrueCondition implements Condition {
+    static class BooleanCondition implements Condition {
 
         @Override
         public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-            return true;
+            MultiValueMap<String, Object> attributes = metadata.getAllAnnotationAttributes(BooleanConditional.class.getName());
+            Boolean value = (Boolean) attributes.getFirst("value");
+            return value;
         }
     }
 
-    static class FalseCondition implements Condition {
-
-        @Override
-        public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-            return false;
-        }
-    }
 }
