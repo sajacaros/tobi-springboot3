@@ -1,2 +1,4 @@
 kr.study.springboot.config.autoconfig.TomcatWebServerConfig
+kr.study.springboot.config.autoconfig.JettyWebServerConfig
 kr.study.springboot.config.autoconfig.DispatcherServletConfig
+
