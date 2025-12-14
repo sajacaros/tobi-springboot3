@@ -1,8 +1,5 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
-import kr.study.springboot.hello.HelloDecorator;
-import kr.study.springboot.hello.HelloService;
-import kr.study.springboot.hello.SimpleHelloService;
 import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.ElementType;
@@ -12,17 +9,6 @@ import java.lang.annotation.Target;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-@UnitTest
-@interface FastUnitTest {
-}
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
-@Test
-@interface UnitTest {
-}
 
 public class HelloServiceTest {
     @UnitTest
@@ -37,5 +23,17 @@ public class HelloServiceTest {
         HelloService helloService = new HelloDecorator(name -> name);
         String ret = helloService.sayHello("dukim");
         assertThat(ret).isEqualTo("*dukim*");
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.METHOD)
+    @UnitTest
+    @interface FastUnitTest {
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
+    @Test
+    @interface UnitTest {
     }
 }

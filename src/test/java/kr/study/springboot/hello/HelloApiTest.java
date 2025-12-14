@@ -1,4 +1,4 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;

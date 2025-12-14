@@ -1,6 +1,5 @@
-package kr.study.springboot;
+package kr.study.springboot.hello;
 
-import kr.study.springboot.hello.HelloController;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
