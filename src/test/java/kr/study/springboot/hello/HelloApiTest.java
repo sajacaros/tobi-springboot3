@@ -17,7 +17,7 @@ class HelloApiTest {
         // RestTemplate은 에러 발생시 예외를 발생시킴
         // TestRestTemplate은 순수 http 에러코드를 리턴
         TestRestTemplate restTemplate = new TestRestTemplate();
-        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/hello?name={name}", String.class, "dukim");
+        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/app/hello?name={name}", String.class, "dukim");
         // status code 200
         assertThat(ret.getStatusCode()).isEqualTo(HttpStatus.OK);
         // headers content-type text/plain
@@ -30,7 +30,7 @@ class HelloApiTest {
     void failsNullHelloApi() {
         // http localhost:8080/hello?name=Spring
         TestRestTemplate restTemplate = new TestRestTemplate();
-        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/hello?name=", String.class);
+        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/app/hello?name=", String.class);
         // status code 200
         assertThat(ret.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -39,7 +39,7 @@ class HelloApiTest {
     void failsEmptyHelloApi() {
         // http localhost:8080/hello?name=Spring
         TestRestTemplate restTemplate = new TestRestTemplate();
-        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/hello?name={name}", String.class, "");
+        ResponseEntity<String> ret = restTemplate.getForEntity("http://localhost:8080/app/hello?name={name}", String.class, "");
         // status code 200
         assertThat(ret.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
