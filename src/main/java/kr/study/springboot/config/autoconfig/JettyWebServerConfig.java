@@ -13,14 +13,12 @@ import org.springframework.core.env.Environment;
 @MyAutoConfiguration //관례
 @ConditionalMyOnClass("org.eclipse.jetty.server.Server")
 public class JettyWebServerConfig {
-    @Value("${contextPath}")
-    String contextPath;
-
     @Bean("jettyWebServerConfig")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory servletContainer() {
+    public ServletWebServerFactory servletContainer(ServerProperties serverProperties) {
         JettyServletWebServerFactory serverFactory = new JettyServletWebServerFactory();
-        serverFactory.setContextPath(contextPath);
+        serverFactory.setContextPath(serverProperties.getContextPath());
+        serverFactory.setPort(serverProperties.getPort());
         return serverFactory;
     }
 }
