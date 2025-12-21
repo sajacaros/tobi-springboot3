@@ -11,9 +11,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = SpringbootApplication.class)
-@TestPropertySource("classpath:application.properties")
+@HellobootTest
 public class DataSourceTest {
     @Autowired
     DataSource dataSource;
