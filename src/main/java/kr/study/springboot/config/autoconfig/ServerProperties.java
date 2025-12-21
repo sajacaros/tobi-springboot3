@@ -1,5 +1,8 @@
 package kr.study.springboot.config.autoconfig;
 
+import kr.study.springboot.config.MyConfigurationProperties;
+
+@MyConfigurationProperties(prefix = "my")
 public class ServerProperties {
     String contextPath;
     int port;

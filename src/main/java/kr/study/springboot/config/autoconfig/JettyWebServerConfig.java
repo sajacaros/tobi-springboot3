@@ -1,6 +1,7 @@
 package kr.study.springboot.config.autoconfig;
 
 import kr.study.springboot.config.ConditionalMyOnClass;
+import kr.study.springboot.config.EnableMyConfigurationProperties;
 import kr.study.springboot.config.MyAutoConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -12,6 +13,7 @@ import org.springframework.core.env.Environment;
 
 @MyAutoConfiguration //관례
 @ConditionalMyOnClass("org.eclipse.jetty.server.Server")
+@EnableMyConfigurationProperties(ServerProperties.class)
 public class JettyWebServerConfig {
     @Bean("jettyWebServerConfig")
     @ConditionalOnMissingBean
