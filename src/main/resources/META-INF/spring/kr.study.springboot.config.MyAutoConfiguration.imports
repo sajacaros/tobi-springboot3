@@ -1,5 +1,7 @@
+kr.study.springboot.config.autoconfig.DataSourceConfig
 kr.study.springboot.config.autoconfig.PropertyPostProcessorConfig
 kr.study.springboot.config.autoconfig.TomcatWebServerConfig
 kr.study.springboot.config.autoconfig.JettyWebServerConfig
 kr.study.springboot.config.autoconfig.DispatcherServletConfig
 kr.study.springboot.config.autoconfig.PropertyPlaceHolderConfig
+
