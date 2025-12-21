@@ -1,12 +1,7 @@
 package kr.study.springboot.config.autoconfig;
 
-import org.springframework.beans.factory.annotation.Value;
-
 public class ServerProperties {
-    @Value("${contextPath:}")
     String contextPath;
-
-    @Value("${port:9000}")
     int port;
 
     public String getContextPath() {
