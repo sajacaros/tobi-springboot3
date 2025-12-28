@@ -1,0 +1,25 @@
+package kr.study.springboot.hello;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.stream.IntStream;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+public class HelloServiceCountTest {
+    @Autowired
+    HelloService helloService;
+    @Autowired
+    HelloRepository helloRepository;
+
+    @Test
+    void sayHelloIncreaseCount() {
+        IntStream.rangeClosed(1,10).forEach(count->{
+            helloService.sayHello("dukim");
+            assertThat(helloRepository.countOf("dukim")).isEqualTo(count);
+        });
+    }
+}

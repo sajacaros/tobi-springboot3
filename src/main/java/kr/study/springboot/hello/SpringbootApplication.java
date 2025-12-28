@@ -1,25 +1,24 @@
 package kr.study.springboot.hello;
 
-import kr.study.springboot.config.MySpringBootApplication;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationRunner;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
 
-@MySpringBootApplication
+@SpringBootApplication
 public class SpringbootApplication {
 
-    @Value("${spring.application.name}")
-    private String appName;
+    final JdbcTemplate jdbcTemplate;
 
-    @Bean
-    ApplicationRunner applicationRunner(Environment environment) {
-        return args -> {
-            System.out.println("Hello, Spring Boot!, " + appName);
-        };
+    public SpringbootApplication(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
+    @PostConstruct
+    public void init() {
+        jdbcTemplate.execute("create table if not exists hello (name varchar(50) primary key, count int)");
+    }
     public static void main(String[] args) {
         // MySpringApplication.run(SpringbootApplication.class, args);
         SpringApplication.run(SpringbootApplication.class, args);
